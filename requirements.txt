@@ -1,0 +1,9 @@
+# Requirements for XDR platform
+
+# List of Python dependencies
+
+
+# Example dependencies
+# numpy==1.19.5
+# pandas==1.1.5
+# Flask==1.1.2
