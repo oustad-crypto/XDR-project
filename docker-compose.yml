@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - '5000:5000'
+    environment:
+      - DATABASE_URL=postgres://user:password@db:5432/database
+
+  elasticsearch:
+    image: elasticsearch:7.x
+    environment:
+      - discovery.type=single-node
+    ports:
+      - '9200:9200'
+
+  redis:
+    image: redis:6.x
+    ports:
+      - '6379:6379'
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
